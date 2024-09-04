@@ -1,8 +1,4 @@
-// 物件
-const slider = document.querySelector(".slider");
-const thumbnails = document.querySelector(".thumbnails");
-
-const worksList = [
+export  let works = [
     { 
         name: "7",
         url: "./element/works/7.jpg"
@@ -169,42 +165,3 @@ const worksList = [
     }
     
 ];
-
-//render to slider
-function renderWorks(arr){
-    for(let i=0; i < arr.length;i++){
-        slider.innerHTML += `<div id="w${i}" class="work hide">
-                        <img src="./element/works/${arr[i].name}.jpg" alt="${arr[i].name}">
-                        <h3>${arr[i].name}</h3>
-                    </div>`;
-        thumbnails.innerHTML += `<div class="thumbnail"  style="transform: translateX(${34.7*i}px)");>
-                        <img  src="./element/works/${arr[i].name}.jpg" alt="${arr[i].name}">
-                    </div>`
-    }
-}
-//點擊顯示功能
-function handleClick(objectId){
-    console.log(objectId);
-    const elements = document.querySelectorAll(`.work`);
-    for(const item of elements){
-        item.classList.add("hide")
-    }
-    elements[objectId].classList.remove("hide")
-    slider.style.backgroundImage = `
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${worksList[objectId].url})
-    `;
-}
-
-function createClicl(){
-    const objects = document.querySelectorAll(".thumbnail")
-    console.log(objects);
-    for (let i = 0; i < objects.length; i++) {
-        const element = objects[i];
-        element.addEventListener('click',()=>{handleClick(i)})
-    }
-}
-
-//access
-renderWorks(worksList)
-createClicl()
