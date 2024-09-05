@@ -178,11 +178,11 @@ function renderWorks(arr){
                         <img src="./element/works/${arr[i].name}.jpg" alt="${arr[i].name}">
                         <h3>${arr[i].name}</h3>
                     </div>`;
-        thumbnails.innerHTML += `<div class="thumbnail"  style="transform: translateX(${34.7*i}px)");>
+        thumbnails.innerHTML += `<div class="thumbnail");>
                         <img  src="./element/works/${arr[i].name}.jpg" alt="${arr[i].name}">
                     </div>`
     }
-
+//   style="transform: translateX(${34.7*i}px)"
     
 }
 //點擊顯示功能
