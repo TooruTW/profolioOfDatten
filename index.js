@@ -1,6 +1,7 @@
 // 物件
 const slider = document.querySelector(".slider");
 const thumbnails = document.querySelector(".thumbnails");
+const sectionWorks = document.querySelector(".works");
 
 const worksList = [
     { 
@@ -181,6 +182,8 @@ function renderWorks(arr){
                         <img  src="./element/works/${arr[i].name}.jpg" alt="${arr[i].name}">
                     </div>`
     }
+
+    
 }
 //點擊顯示功能
 function handleClick(objectId){
@@ -190,7 +193,7 @@ function handleClick(objectId){
         item.classList.add("hide")
     }
     elements[objectId].classList.remove("hide")
-    slider.style.backgroundImage = `
+    sectionWorks.style.backgroundImage = `
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${worksList[objectId].url})
     `;
@@ -205,6 +208,13 @@ function createClicl(){
     }
 }
 
+//自動選取一個圖片
+function autoSelect(){
+    handleClick(Math.floor(Math.random()*worksList.length)-1);
+}
+
+
 //access
 renderWorks(worksList)
 createClicl()
+autoSelect()
